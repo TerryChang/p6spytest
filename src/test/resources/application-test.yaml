@@ -1,0 +1,12 @@
+spring:
+  test:
+    database:
+      # @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) 과 같은 기능으로 yaml 파일에 설정하면 Test 클래스 전반에 걸쳐 적용되기 때문에 Test 클래스 소스에 적용할 필요가 없다
+      replace: none
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: true
+      logging: slf4j
