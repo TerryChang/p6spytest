@@ -44,7 +44,6 @@ public class MemberRepositoryTest {
     }
 
     @Test
-//    @Transactional
     @DisplayName("조건절 테스트")
     public void Member_Condition_List_Test() {
         List<Member> result = memberRepository.findByNameContainingOrEmailContainingOrderByRegDateDesc("5", "5");
