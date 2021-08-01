@@ -7,13 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.TestPropertySources;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,9 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @CustomDataJpaTest
-// @DataJpaTest(showSql = false)
-// @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-// @SpringBootTest
 public class MemberRepositoryTest {
     @Value("${spring.test.database.replace}")
     String replace;
@@ -41,12 +31,12 @@ public class MemberRepositoryTest {
         for(int i=0; i < 25; i++) {
             String strIdx = i < 10 ? "0" + i : String.valueOf(i);
             String memberName = "테스터 " + strIdx;
-            String loginId = "furywolf" + strIdx;
+            String loginId = "myId" + strIdx;
             String loginPassword = "abcd" + strIdx;
-            String email = "furywolf" + strIdx;
+            String email = "myId" + strIdx;
             if(i % 3 == 0) email += "@nate.com";
             else if(i % 7 == 0) email += "@gmail.com";
-            else email = "furywolf" + strIdx + "@hanmail.net";
+            else email = "myId" + strIdx + "@hanmail.net";
             Member member = Member.builder().name(memberName).loginId(loginId).loginPassword(loginPassword).email(email).build();
 
             memberRepository.save(member);

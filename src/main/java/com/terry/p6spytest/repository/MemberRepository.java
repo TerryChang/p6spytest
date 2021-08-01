@@ -30,10 +30,4 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
      * @return
      */
     List<Member> findByEmailContainingOrderByRegDateDesc(String email);
-
-    Page<Member> findByNameContainingOrEmailContainingOrderByRegDateDesc(String name, String email, Pageable pageable);
-
-    Page<Member> findByNameContainingOrderByRegDateDesc(String name, Pageable pageable);
-
-    Page<Member> findByEmailContainingOrderByRegDateDesc(String email, Pageable pageable);
 }
